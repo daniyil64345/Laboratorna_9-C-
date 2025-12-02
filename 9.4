@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+	int randomMassive[5];
+	int integer, number =0;
+
+	cout << "Enter integer:";
+	cin >> integer;
+
+	srand(time(0));
+
+
+	cout << "Massive:\n";
+	for (int i = 0; i < 5; i++) {
+		randomMassive[i] = rand() % 10;
+		cout << randomMassive[i] << " ";
+		if (randomMassive[i] > integer) {
+			number++;
+		}
+	}
+	cout << "\nTotal number of elements greater than " << integer << " : " << number << endl;
+}
