@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime> 
+using namespace std;
+
+int main() {
+    int randomMassive[5];
+    int max, min;
+    int max_in = 0, min_in = 0;
+
+    srand(time(0));
+
+    cout << "Massive before:\n";
+    for (int i = 0; i < 5; i++) {
+        randomMassive[i] = rand() % 10;
+        cout << randomMassive[i] << " ";
+    }
+
+    cout << endl;
+
+    max = min = randomMassive[0];
+
+    for (int i = 0; i < 5; i++) {
+        if (randomMassive[i] > max) {
+            max = randomMassive[i];
+            max_in = i;
+        }
+        if (randomMassive[i] < min) {
+            min = randomMassive[i];
+            min_in = i;
+        }
+    }
+    int temp = randomMassive[max_in];
+    randomMassive[max_in] = randomMassive[min_in];
+    randomMassive[min_in] = temp;
+
+    cout << "Massive after:\n";
+    for (int i = 0; i < 5; i++) {
+        cout << randomMassive[i] << " ";
+    }
+
+    cout << endl;
+}
